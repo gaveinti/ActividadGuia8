@@ -22,12 +22,13 @@ let cargarDatos = () => {
         })
         .catch(console.error);
 
-
+    let x = document.querySelector('#frases')
     const selectElement = document.querySelector('div.input-group > select')
     selectElement.addEventListener('change', (event) => {
         fetch("https://dataserverdaw.herokuapp.com/escritores/frases")
             .then(response => response.json())
             .then(data => {
+                x.innerHTML = ""
                 let select = document.querySelector('div.input-group > select')
                 let id1 = select.value
                 console.log(event.target.value)
@@ -59,7 +60,7 @@ let cargarDatos = () => {
                         </div>
                     </div>`
                         
-                        document.querySelector('#frases').innerHTML += plantilla
+                        x.innerHTML += plantilla
                     }
                     i++;
                 };
